@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50D56602589166900236AD3 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D565E2589166900236AD3 /* SpeedViewController.swift */; };
+		B50D56612589166900236AD3 /* SpeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50D565F2589166900236AD3 /* SpeedViewController.xib */; };
+		B5A15D1A25892F5100513D1A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A15D1825892F5100513D1A /* WeatherViewController.swift */; };
+		B5A15D1B25892F5100513D1A /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A15D1925892F5100513D1A /* WeatherViewController.xib */; };
 		B5F9434B2577D880001B1DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434A2577D880001B1DC7 /* AppDelegate.swift */; };
 		B5F9434D2577D880001B1DC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */; };
 		B5F9434F2577D880001B1DC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434E2577D880001B1DC7 /* ViewController.swift */; };
@@ -14,9 +18,24 @@
 		B5F943552577D880001B1DC7 /* HUD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5F943532577D880001B1DC7 /* HUD.xcdatamodeld */; };
 		B5F943572577D882001B1DC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F943562577D882001B1DC7 /* Assets.xcassets */; };
 		B5F9435A2577D882001B1DC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F943582577D882001B1DC7 /* LaunchScreen.storyboard */; };
+		B5F943672579302B001B1DC7 /* GraphicSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F943652579302B001B1DC7 /* GraphicSpeedViewController.swift */; };
+		B5F943682579302B001B1DC7 /* GraphicSpeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F943662579302B001B1DC7 /* GraphicSpeedViewController.xib */; };
+		B5F9436F257E9837001B1DC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9436D257E9837001B1DC7 /* SettingsViewController.swift */; };
+		B5F94370257E9837001B1DC7 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F9436E257E9837001B1DC7 /* SettingsViewController.xib */; };
+		B5F94373257E996B001B1DC7 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F94371257E996B001B1DC7 /* TripViewController.swift */; };
+		B5F94374257E996B001B1DC7 /* TripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F94372257E996B001B1DC7 /* TripViewController.xib */; };
+		B5F9437725812326001B1DC7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F9437625812326001B1DC7 /* CoreLocation.framework */; };
+		B5F94379258126D1001B1DC7 /* SpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F94378258126D1001B1DC7 /* SpeedManager.swift */; };
+		B5F9437B2584D086001B1DC7 /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437A2584D086001B1DC7 /* TripManager.swift */; };
+		B5F9437D2584D2F3001B1DC7 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437C2584D2F3001B1DC7 /* TripModel.swift */; };
+		B5F9437F258647FB001B1DC7 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437E258647FB001B1DC7 /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B50D565E2589166900236AD3 /* SpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewController.swift; sourceTree = "<group>"; };
+		B50D565F2589166900236AD3 /* SpeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedViewController.xib; sourceTree = "<group>"; };
+		B5A15D1825892F5100513D1A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		B5A15D1925892F5100513D1A /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
 		B5F943472577D880001B1DC7 /* HUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9434A2577D880001B1DC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +45,17 @@
 		B5F943562577D882001B1DC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F943592577D882001B1DC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F9435B2577D882001B1DC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F943652579302B001B1DC7 /* GraphicSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicSpeedViewController.swift; sourceTree = "<group>"; };
+		B5F943662579302B001B1DC7 /* GraphicSpeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicSpeedViewController.xib; sourceTree = "<group>"; };
+		B5F9436D257E9837001B1DC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B5F9436E257E9837001B1DC7 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		B5F94371257E996B001B1DC7 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		B5F94372257E996B001B1DC7 /* TripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripViewController.xib; sourceTree = "<group>"; };
+		B5F9437625812326001B1DC7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B5F94378258126D1001B1DC7 /* SpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedManager.swift; sourceTree = "<group>"; };
+		B5F9437A2584D086001B1DC7 /* TripManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
+		B5F9437C2584D2F3001B1DC7 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		B5F9437E258647FB001B1DC7 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F9437725812326001B1DC7 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +75,7 @@
 			children = (
 				B5F943492577D880001B1DC7 /* HUD */,
 				B5F943482577D880001B1DC7 /* Products */,
+				B5F9437525812325001B1DC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +94,34 @@
 				B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */,
 				B5F9434E2577D880001B1DC7 /* ViewController.swift */,
 				B5F943502577D880001B1DC7 /* Main.storyboard */,
+				B50D565E2589166900236AD3 /* SpeedViewController.swift */,
+				B50D565F2589166900236AD3 /* SpeedViewController.xib */,
+				B5F94378258126D1001B1DC7 /* SpeedManager.swift */,
+				B5F94371257E996B001B1DC7 /* TripViewController.swift */,
+				B5F9437A2584D086001B1DC7 /* TripManager.swift */,
+				B5F9437C2584D2F3001B1DC7 /* TripModel.swift */,
+				B5F94372257E996B001B1DC7 /* TripViewController.xib */,
+				B5F943652579302B001B1DC7 /* GraphicSpeedViewController.swift */,
+				B5F943662579302B001B1DC7 /* GraphicSpeedViewController.xib */,
+				B5F9437E258647FB001B1DC7 /* WeatherManager.swift */,
+				B5F9436D257E9837001B1DC7 /* SettingsViewController.swift */,
+				B5A15D1825892F5100513D1A /* WeatherViewController.swift */,
+				B5A15D1925892F5100513D1A /* WeatherViewController.xib */,
+				B5F9436E257E9837001B1DC7 /* SettingsViewController.xib */,
 				B5F943562577D882001B1DC7 /* Assets.xcassets */,
 				B5F943582577D882001B1DC7 /* LaunchScreen.storyboard */,
 				B5F9435B2577D882001B1DC7 /* Info.plist */,
 				B5F943532577D880001B1DC7 /* HUD.xcdatamodeld */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		B5F9437525812325001B1DC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5F9437625812326001B1DC7 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,7 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Konstantin Kuznetsov";
 				TargetAttributes = {
 					B5F943462577D880001B1DC7 = {
@@ -128,9 +182,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F943682579302B001B1DC7 /* GraphicSpeedViewController.xib in Resources */,
+				B5A15D1B25892F5100513D1A /* WeatherViewController.xib in Resources */,
 				B5F9435A2577D882001B1DC7 /* LaunchScreen.storyboard in Resources */,
 				B5F943572577D882001B1DC7 /* Assets.xcassets in Resources */,
+				B5F94374257E996B001B1DC7 /* TripViewController.xib in Resources */,
+				B5F94370257E9837001B1DC7 /* SettingsViewController.xib in Resources */,
 				B5F943522577D880001B1DC7 /* Main.storyboard in Resources */,
+				B50D56612589166900236AD3 /* SpeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +201,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F9434F2577D880001B1DC7 /* ViewController.swift in Sources */,
+				B5F9437D2584D2F3001B1DC7 /* TripModel.swift in Sources */,
+				B5F943672579302B001B1DC7 /* GraphicSpeedViewController.swift in Sources */,
+				B5F9437F258647FB001B1DC7 /* WeatherManager.swift in Sources */,
+				B5A15D1A25892F5100513D1A /* WeatherViewController.swift in Sources */,
+				B5F94373257E996B001B1DC7 /* TripViewController.swift in Sources */,
 				B5F943552577D880001B1DC7 /* HUD.xcdatamodeld in Sources */,
 				B5F9434B2577D880001B1DC7 /* AppDelegate.swift in Sources */,
+				B50D56602589166900236AD3 /* SpeedViewController.swift in Sources */,
+				B5F94379258126D1001B1DC7 /* SpeedManager.swift in Sources */,
 				B5F9434D2577D880001B1DC7 /* SceneDelegate.swift in Sources */,
+				B5F9437B2584D086001B1DC7 /* TripManager.swift in Sources */,
+				B5F9436F257E9837001B1DC7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +264,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -256,6 +325,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
