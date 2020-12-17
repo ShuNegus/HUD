@@ -9,23 +9,29 @@
 import UIKit
 
 class TripViewController: UIViewController{
+
+    // MARK: - IBOutlets
     
     @IBOutlet weak var avgSpeedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+
+    // MARK: - Internal properties
     
-    var tripManager: TripManager!
-    
+    let tripManager = TripManager()
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tripManager = TripManager()
         tripManager.delegate = self
-        
     }
 }
 
+// MARK: - SpeedManagerDelegate
+
 extension TripViewController: TripManagerDelegate {
-    func tripDataDidUpdate(trip: Trip){
+
+    func tripDataDidUpdate(trip: Trip) {
         avgSpeedLabel?.text = String(trip.avgSpeed)
         distanceLabel?.text = String(trip.distance)
         print(String(trip.avgSpeed))
