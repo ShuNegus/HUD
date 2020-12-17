@@ -36,6 +36,7 @@
 		B50D565F2589166900236AD3 /* SpeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedViewController.xib; sourceTree = "<group>"; };
 		B5A15D1825892F5100513D1A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B5A15D1925892F5100513D1A /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		B5A15D1F258A820800513D1A /* HUD Test.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "HUD Test.gpx"; path = "../../../Downloads/HUD Test.gpx"; sourceTree = "<group>"; };
 		B5F943472577D880001B1DC7 /* HUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9434A2577D880001B1DC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		B5F9433E2577D880001B1DC7 = {
 			isa = PBXGroup;
 			children = (
+				B5A15D1F258A820800513D1A /* HUD Test.gpx */,
 				B5F943492577D880001B1DC7 /* HUD */,
 				B5F943482577D880001B1DC7 /* Products */,
 				B5F9437525812325001B1DC7 /* Frameworks */,

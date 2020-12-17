@@ -27,6 +27,7 @@ class ViewController: UIViewController{
         speedViewController.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         speedViewController.view.frame = containerView.bounds
         containerView.addSubview(speedViewController.view)
+        //containerView.transform = CGAffineTransform(scaleX: 1, y: -1)
         speedViewController.didMove(toParent: self)
         
         addChild(tripViewController)

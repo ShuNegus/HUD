@@ -28,7 +28,7 @@ extension TripViewController: TripManagerDelegate {
     func tripDataDidUpdate(trip: Trip){
         avgSpeedLabel?.text = String(trip.avgSpeed)
         distanceLabel?.text = String(trip.distance)
-        print(String(trip.avgSpeed))
+        
     }
 }
 
