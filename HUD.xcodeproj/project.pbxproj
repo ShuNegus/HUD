@@ -29,6 +29,8 @@
 		B5F9437B2584D086001B1DC7 /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437A2584D086001B1DC7 /* TripManager.swift */; };
 		B5F9437D2584D2F3001B1DC7 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437C2584D2F3001B1DC7 /* TripModel.swift */; };
 		B5F9437F258647FB001B1DC7 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9437E258647FB001B1DC7 /* WeatherManager.swift */; };
+		BE92F049258BB4F800C35F37 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92F048258BB4F800C35F37 /* UIViewController+Ext.swift */; };
+		BE92F04E258BBE7E00C35F37 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92F04D258BBE7E00C35F37 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		B5F9437A2584D086001B1DC7 /* TripManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		B5F9437C2584D2F3001B1DC7 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		B5F9437E258647FB001B1DC7 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		BE92F048258BB4F800C35F37 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		BE92F04D258BBE7E00C35F37 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 				B5F943482577D880001B1DC7 /* Products */,
 				B5F9437525812325001B1DC7 /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		B5F943482577D880001B1DC7 /* Products */ = {
 			isa = PBXGroup;
@@ -92,6 +98,8 @@
 		B5F943492577D880001B1DC7 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				BE92F04C258BBE6200C35F37 /* LocationService */,
+				BE92F047258BB4E800C35F37 /* Extensions */,
 				B5F9434A2577D880001B1DC7 /* AppDelegate.swift */,
 				B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */,
 				B5F9434E2577D880001B1DC7 /* ViewController.swift */,
@@ -124,6 +132,22 @@
 				B5F9437625812326001B1DC7 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE92F047258BB4E800C35F37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE92F048258BB4F800C35F37 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BE92F04C258BBE6200C35F37 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				BE92F04D258BBE7E00C35F37 /* LocationService.swift */,
+			);
+			path = LocationService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,10 +228,12 @@
 			files = (
 				B5F9434F2577D880001B1DC7 /* ViewController.swift in Sources */,
 				B5F9437D2584D2F3001B1DC7 /* TripModel.swift in Sources */,
+				BE92F049258BB4F800C35F37 /* UIViewController+Ext.swift in Sources */,
 				B5F943672579302B001B1DC7 /* GraphicSpeedViewController.swift in Sources */,
 				B5F9437F258647FB001B1DC7 /* WeatherManager.swift in Sources */,
 				B5A15D1A25892F5100513D1A /* WeatherViewController.swift in Sources */,
 				B5F94373257E996B001B1DC7 /* TripViewController.swift in Sources */,
+				BE92F04E258BBE7E00C35F37 /* LocationService.swift in Sources */,
 				B5F943552577D880001B1DC7 /* HUD.xcdatamodeld in Sources */,
 				B5F9434B2577D880001B1DC7 /* AppDelegate.swift in Sources */,
 				B50D56602589166900236AD3 /* SpeedViewController.swift in Sources */,

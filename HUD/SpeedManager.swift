@@ -10,47 +10,28 @@ import UIKit
 import CoreLocation
 
 protocol SpeedManagerDelegate: class {
-    func speedDidChange(speed: CLLocationSpeed)
+    func speedDidChange(speed: Measurement<UnitSpeed>)
 }
 
-class SpeedManager: NSObject, CLLocationManagerDelegate {
+class SpeedManager: LocationServiceDelegate {
+
+    // MARK: - Internal properties
     
     weak var delegate: SpeedManagerDelegate?
+
+    // MARK: - Private properties
+    private let locationService = LocationService()
     
-    private let locationManager: CLLocationManager?
+
+    // MARK: - Lifecycle
     
-    
-    override init() {
-        locationManager = CLLocationManager.locationServicesEnabled() ? CLLocationManager() : nil
-        
-        super.init()
-        
-        if let locationManager = self.locationManager {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            
-            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-                locationManager.requestWhenInUseAuthorization()
-            } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
-                locationManager.startUpdatingLocation()
-            }
-            
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == CLAuthorizationStatus.authorizedAlways{
-            locationManager?.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
-            let kmph = max(locations[locations.count - 1].speed / 1000 * 3600, 0);
-            delegate?.speedDidChange(speed: kmph);
-            
-        }
-        
+    init() {
+        locationService.delegate = self
     }
 
+    // MARK: - LocationServiceDelegate
+
+    func locationService(_ locationService: LocationService, didUpdateLocation location: CLLocation) {
+        delegate?.speedDidChange(speed: .init(value: location.speed, unit: .metersPerSecond))
+    }
 }

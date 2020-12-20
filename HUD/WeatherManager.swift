@@ -10,20 +10,99 @@ import Foundation
 import CoreLocation
 
 protocol WeatherDelegate: class {
-    func weatherDidUpdate(temperature: String)
+    // Синтаксис делегата по заветам apple
+    func weatherManager(_ weatherManager: WeatherManager, didUpdate temperature: String)
+    // Error лучше работать со свифтовой Error
+    func weatherManager(_ weatherManager: WeatherManager, didRecive error: String)
 }
 
-class WeatherManager: NSObject, CLLocationManagerDelegate {
+class WeatherManager: LocationServiceDelegate {
+
+    // MARK: - Internal properties
+
     var delegate: WeatherDelegate?
+
+    // MARK: - Private properties
     
-    private let locationManager: CLLocationManager?
+    private let locationService = LocationService()
     
     private let weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather"
     private let apiKey = "75370c7adc83f96bc66ddf9e42096d9f"
-    var temperature = String()
-    func getTemperature(location: CLLocation) -> String{
+
+//    // Используем простые конструкторы
+//    private var temperature = ""
+
+    private var location: CLLocation?
+    // Он будет обновлять погоду с заданым промежутком времени
+    private var timer: Timer?
+
+    private var didWeatherFirstCall = false
+
+    // Конструктор всегда выше функций
+    // MARK: - Lifecycle
+
+    init() {
+        locationService.delegate = self
+        timer = Timer.scheduledTimer(
+            timeInterval: 30,
+            target: self,
+            selector: #selector(updateWeather),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+
+    @objc
+    func updateWeather() {
+        guard let location = location else {
+            return
+        }
+
+        let session = URLSession.shared
+
+        // Вот это бы все декомпозировать на отдельные методы: Создать урл, кинуть реквест, смапить данные.
+        // На счет мапинга лучше юзать codable https://habr.com/ru/post/414221/
+
+        let weatherURL = URL(string: "\(weatherBaseURL)?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)")!
+        print(String("\(weatherBaseURL)?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)"))
+        /// Типы данных в клоужуре (data: Data?, response: URLResponse?, error: Error?) раскрывать не нужно, и не забываем убрать утечку памяти [weak self]
+        let dataTask = session.dataTask(with: weatherURL) { [weak self] data, response, error in
+            // Захватываем self
+            guard let self = self else {
+                return
+            }
+            // Куча вложенных if-ов, подумай как можно решить через guard
+            if let error = error {
+                self.delegate?.weatherManager(self, didRecive: error.localizedDescription)
+            } else {
+                if let data = data {
+                    if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
+                        if let mainDictionary = jsonObj.value(forKey: "main") as? NSDictionary {
+                            if let temperatureTemp = mainDictionary.value(forKey: "temp") {
+                                self.delegate?.weatherManager(self, didUpdate: "\(temperatureTemp)")
+                            }
+                        } else {
+                            self.delegate?.weatherManager(self, didRecive: "Error: unable to find temperature in dictionary")
+                        }
+                    } else {
+                        self.delegate?.weatherManager(self, didRecive: "Error: unable to convert json data")
+                    }
+                } else {
+                    self.delegate?.weatherManager(self, didRecive: "Error: did not receive data")
+                }
+            }
+        }
+        dataTask.resume()
+    }
+
+    /*
+    // Метод не может возвращать данные, т.к. сетевой запрос ассинхронный, нужен callback через клоужуру
+    func getTemperature(location: CLLocation) -> String {
         
         let session = URLSession.shared
+
+        // Вот это бы все декомпозировать на отдельные методы: Создать урл, кинуть реквест, смапить данные.
+        // На счет мапинга лучше юзать codable https://habr.com/ru/post/414221/
 
         let weatherURL = URL(string: "\(weatherBaseURL)?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)")!
         print(String("\(weatherBaseURL)?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)"))
@@ -55,36 +134,15 @@ class WeatherManager: NSObject, CLLocationManagerDelegate {
         dataTask.resume()
         return temperature
     }
-    
-    override init() {
-        locationManager = CLLocationManager.locationServicesEnabled() ? CLLocationManager() : nil
-        
-        super.init()
-        
-        if let locationManager = self.locationManager {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            
-            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-                locationManager.requestWhenInUseAuthorization()
-            } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse{
-                locationManager.startUpdatingLocation()
-            }
-            
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == CLAuthorizationStatus.authorizedWhenInUse{
-            locationManager?.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
-            let temperature = self.getTemperature(location: locations.last!)
-            delegate?.weatherDidUpdate(temperature: temperature)
-            print(temperature + " in location manager")
+    */
+
+    // MARK: - LocationServiceDelegate
+
+    func locationService(_ locationService: LocationService, didUpdateLocation location: CLLocation) {
+        self.location = location
+        if didWeatherFirstCall == false {
+            didWeatherFirstCall = true
+            updateWeather()
         }
     }
 }

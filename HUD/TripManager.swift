@@ -14,61 +14,71 @@ protocol TripManagerDelegate: class {
     func tripDataDidUpdate(trip: Trip)
 }
 
-class TripManager: NSObject, CLLocationManagerDelegate{
-    var delegate: TripManagerDelegate?
-    var tripData: Trip! = Trip()
-    var previousLocation: CLLocation?
-    var tempSpeed: [Double]? = []
-    var tempDistance: [Double]? = []
-    private let locationManager: CLLocationManager?
-    override init() {
-        locationManager = CLLocationManager.locationServicesEnabled() ? CLLocationManager() : nil
-        
-        super.init()
-        
-        if let locationManager = self.locationManager {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            
-            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-                locationManager.requestWhenInUseAuthorization()
-            } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
-                locationManager.startUpdatingLocation()
-            }
-            
-        }
+class TripManager: LocationServiceDelegate {
+
+    // MARK: - Internal properties
+
+    //Делегаты всегда weak
+    weak var delegate: TripManagerDelegate?
+
+    // MARK: - Private properties
+
+    private var previousLocation: CLLocation?
+    // Пустые массивы безсмысслены
+    private var tempSpeed: [Double] = []
+
+    private let locationService = LocationService()
+
+    // MARK: - Lifecycle
+
+    init() {
+        locationService.delegate = self
     }
-    
+
+    // MARK: - LocationServiceDelegate
+
+    func locationService(_ locationService: LocationService, didUpdateLocation location: CLLocation) {
+        var distance = 0.0
+        if let previousLocation = previousLocation {
+            // Тут считается дистанция только межу двумя точками а не по всему маршруту, так точно надо?
+            distance = Double(round(location.distance(from: previousLocation)))
+        }
+        previousLocation = location
+
+        tempSpeed.append(location.speed)
+
+        var avgSpeed = 0.0
+        if tempSpeed.isEmpty == false {
+            let sumSpeed = tempSpeed.reduce(0.0, +)
+            avgSpeed = sumSpeed / Double(tempSpeed.count)
+        }
+        delegate?.tripDataDidUpdate(trip: .init(avgSpeed: avgSpeed, distance: distance))
+    }
+
+    /*
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-    
-//        let lastLocation = locations.last!
-//
-//        if let previousLocation = previousLocation {
-//            tripData.distance = Double(round(lastLocation.distance(from: previousLocation)/1000))
-//            print(lastLocation.distance(from: previousLocation))
-//            print(tripData.distance / 1000)
-//        }
+
+     // Force unwrap это очень плохо, старайся его избегать
+        let lastLocation = locations.last!
         
-//        previousLocation = lastLocation
+        if let previousLocation = previousLocation {
+            tripData.distance = Double(round(lastLocation.distance(from: previousLocation)))
+        }
+        
+        previousLocation = lastLocation
         
         for location in locations {
-            
-            if previousLocation != location {
-                tempDistance?.append(round(location.distance(from: previousLocation ?? location))/1000)
-            }
             if(location.timestamp > Date.init(timeIntervalSinceNow: -600)){
-                tempSpeed?.append(abs(location.speed / 1000 * 3600))
+                tempSpeed?.append(location.speed)
             }
-            previousLocation = location
         }
-        print(tempDistance)
-        print(tempSpeed)
+            
         let sumSpeed = tempSpeed?.reduce(0.0, +) ?? 0.0
         tripData.avgSpeed = sumSpeed / Double(tempSpeed?.count ?? 1)
-        tripData.distance = tempDistance?.reduce(0.0, +) ?? 0.0
         
         delegate?.tripDataDidUpdate(trip: tripData);
     }
-    
 
+     */
 }
