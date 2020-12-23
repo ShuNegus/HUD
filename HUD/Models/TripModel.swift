@@ -9,6 +9,6 @@ import CoreData
 
 struct Trip {
     /// Все константы
-    let avgSpeed: Double
-    let distance: Double
+    var avgSpeed: Double
+    var distance: Double
 }

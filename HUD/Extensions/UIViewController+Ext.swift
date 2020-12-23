@@ -2,7 +2,7 @@
 //  UIViewController+Ext.swift
 //  HUD
 //
-//  Created by Vladimir Shutov on 17.12.2020.
+//  Created by Konstantin on 02/12/2020.
 //  Copyright © 2020 Konstantin Kuznetsov. All rights reserved.
 //
 

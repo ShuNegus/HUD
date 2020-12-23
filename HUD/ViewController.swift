@@ -11,7 +11,6 @@ import CoreLocation
 
 class ViewController: UIViewController{
 
-    // Помечаем марками разделы класса. Соблюдаем код стайл и аккуратность
     // MARK: - IBOutlets
 
     @IBOutlet weak var containerView: UIView!
@@ -20,16 +19,37 @@ class ViewController: UIViewController{
 
     // MARK: - Internal properties
 
-    // Это неизменяемые переменные, помечаем их константами
     let tripViewController = TripViewController()
     let speedViewController = SpeedViewController()
     let weatherViewController = WeatherViewController()
+    let graphicSpeed = GraphicSpeedViewController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
         addChild(vc: speedViewController, to: containerView)
         addChild(vc: tripViewController, to: tripContainerView)
         addChild(vc: weatherViewController, to: weatherContainerView)
     }
+    
+    @objc func handleSwipes(_ sender: UISwipeGestureRecognizer){
+        if sender.direction == .left
+        {
+            addChild(vc: graphicSpeed, to: containerView)
+        }
+
+        if sender.direction == .right
+        {
+            addChild(vc: speedViewController, to: containerView)
+        }
+    }
 }
+

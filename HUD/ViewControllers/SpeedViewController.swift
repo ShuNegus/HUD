@@ -18,7 +18,6 @@ class SpeedViewController: UIViewController {
 
     // MARK: - Internal properties
 
-    // Force unwrap лучше не юзать, это дурной тон. Так же тут константа
     let speedManager = SpeedManager()
 
     // MARK: - Lifecycle
@@ -33,15 +32,11 @@ class SpeedViewController: UIViewController {
 // MARK: - SpeedManagerDelegate
 
 extension SpeedViewController: SpeedManagerDelegate {
-    // CLLocationSpeed дает скорость метр в секунду.
-    // Лучше специфичные типы фреймворка, дальне менеджера не выпускать
-    // В данном случае, лучше заюзать стандартную структуру для различных величин - Measurement
-    // Она generic, и может быть скоростью, массой, длинной и тд. в нашем случае берем скорость
+    
     func speedDidChange(speed: Measurement<UnitSpeed>) {
         let kmHMesure = speed.converted(to: .kilometersPerHour)
-        speedOutput?.text = String(kmHMesure.value)
+        speedOutput?.text = String(round(kmHMesure.value))
         speedUnitsOutput?.text = "KM/H"
-        print(speed)
     }
 }
 

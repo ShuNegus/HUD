@@ -32,6 +32,6 @@ class SpeedManager: LocationServiceDelegate {
     // MARK: - LocationServiceDelegate
 
     func locationService(_ locationService: LocationService, didUpdateLocation location: CLLocation) {
-        delegate?.speedDidChange(speed: .init(value: location.speed, unit: .metersPerSecond))
+        delegate?.speedDidChange(speed: .init(value: abs(location.speed), unit: .metersPerSecond))
     }
 }
