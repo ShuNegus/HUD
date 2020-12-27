@@ -11,6 +11,7 @@
 		B50D56612589166900236AD3 /* SpeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50D565F2589166900236AD3 /* SpeedViewController.xib */; };
 		B5A15D1A25892F5100513D1A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A15D1825892F5100513D1A /* WeatherViewController.swift */; };
 		B5A15D1B25892F5100513D1A /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A15D1925892F5100513D1A /* WeatherViewController.xib */; };
+		B5C7FAD925939ADD0071F360 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7FAD825939AD90071F360 /* GaugeView.swift */; };
 		B5F9434B2577D880001B1DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434A2577D880001B1DC7 /* AppDelegate.swift */; };
 		B5F9434D2577D880001B1DC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */; };
 		B5F9434F2577D880001B1DC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9434E2577D880001B1DC7 /* ViewController.swift */; };
@@ -38,6 +39,8 @@
 		B50D565F2589166900236AD3 /* SpeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedViewController.xib; sourceTree = "<group>"; };
 		B5A15D1825892F5100513D1A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B5A15D1925892F5100513D1A /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		B5A15D1F258A820800513D1A /* HUD Test.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "HUD Test.gpx"; path = "../../../Downloads/HUD Test.gpx"; sourceTree = "<group>"; };
+		B5C7FAD825939AD90071F360 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		B5F943472577D880001B1DC7 /* HUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9434A2577D880001B1DC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,9 +77,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5A15D26258F6D6000513D1A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B5F9437E258647FB001B1DC7 /* WeatherManager.swift */,
+				B5F94378258126D1001B1DC7 /* SpeedManager.swift */,
+				B5F9437A2584D086001B1DC7 /* TripManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B5A15D27258F6D9000513D1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5F9437C2584D2F3001B1DC7 /* TripModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5A15D29258F6DA700513D1A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5F943652579302B001B1DC7 /* GraphicSpeedViewController.swift */,
+				B5F9436D257E9837001B1DC7 /* SettingsViewController.swift */,
+				B50D565E2589166900236AD3 /* SpeedViewController.swift */,
+				B5F94371257E996B001B1DC7 /* TripViewController.swift */,
+				B5A15D1825892F5100513D1A /* WeatherViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B5A15D2A258F6DE200513D1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5C7FAD825939AD90071F360 /* GaugeView.swift */,
+				B50D565F2589166900236AD3 /* SpeedViewController.xib */,
+				B5F94372257E996B001B1DC7 /* TripViewController.xib */,
+				B5F943662579302B001B1DC7 /* GraphicSpeedViewController.xib */,
+				B5A15D1925892F5100513D1A /* WeatherViewController.xib */,
+				B5F9436E257E9837001B1DC7 /* SettingsViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B5F9433E2577D880001B1DC7 = {
 			isa = PBXGroup;
 			children = (
+				B5A15D1F258A820800513D1A /* HUD Test.gpx */,
 				B5F943492577D880001B1DC7 /* HUD */,
 				B5F943482577D880001B1DC7 /* Products */,
 				B5F9437525812325001B1DC7 /* Frameworks */,
@@ -96,26 +143,16 @@
 		B5F943492577D880001B1DC7 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				B5A15D2A258F6DE200513D1A /* Views */,
+				B5A15D29258F6DA700513D1A /* ViewControllers */,
+				B5A15D27258F6D9000513D1A /* Models */,
+				B5A15D26258F6D6000513D1A /* Managers */,
 				BE92F04C258BBE6200C35F37 /* LocationService */,
 				BE92F047258BB4E800C35F37 /* Extensions */,
 				B5F9434A2577D880001B1DC7 /* AppDelegate.swift */,
 				B5F9434C2577D880001B1DC7 /* SceneDelegate.swift */,
 				B5F9434E2577D880001B1DC7 /* ViewController.swift */,
 				B5F943502577D880001B1DC7 /* Main.storyboard */,
-				B50D565E2589166900236AD3 /* SpeedViewController.swift */,
-				B50D565F2589166900236AD3 /* SpeedViewController.xib */,
-				B5F94378258126D1001B1DC7 /* SpeedManager.swift */,
-				B5F94371257E996B001B1DC7 /* TripViewController.swift */,
-				B5F9437A2584D086001B1DC7 /* TripManager.swift */,
-				B5F9437C2584D2F3001B1DC7 /* TripModel.swift */,
-				B5F94372257E996B001B1DC7 /* TripViewController.xib */,
-				B5F943652579302B001B1DC7 /* GraphicSpeedViewController.swift */,
-				B5F943662579302B001B1DC7 /* GraphicSpeedViewController.xib */,
-				B5F9437E258647FB001B1DC7 /* WeatherManager.swift */,
-				B5F9436D257E9837001B1DC7 /* SettingsViewController.swift */,
-				B5A15D1825892F5100513D1A /* WeatherViewController.swift */,
-				B5A15D1925892F5100513D1A /* WeatherViewController.xib */,
-				B5F9436E257E9837001B1DC7 /* SettingsViewController.xib */,
 				B5F943562577D882001B1DC7 /* Assets.xcassets */,
 				B5F943582577D882001B1DC7 /* LaunchScreen.storyboard */,
 				B5F9435B2577D882001B1DC7 /* Info.plist */,
@@ -238,6 +275,7 @@
 				B5F94379258126D1001B1DC7 /* SpeedManager.swift in Sources */,
 				B5F9434D2577D880001B1DC7 /* SceneDelegate.swift in Sources */,
 				B5F9437B2584D086001B1DC7 /* TripManager.swift in Sources */,
+				B5C7FAD925939ADD0071F360 /* GaugeView.swift in Sources */,
 				B5F9436F257E9837001B1DC7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
